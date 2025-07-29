@@ -1,6 +1,6 @@
 import axios from 'axios';
 //ניתוב ברירת מחדל
-axios.defaults.baseURL = 'http://localhost:5054';
+axios.defaults.baseURL = 'http://localhost:5283';
 
 //תפיסת שגיאות והדפסןת בלוג
 axios.interceptors.response.use( (response)=> {
@@ -20,7 +20,7 @@ export default {
     console.log("i am in the get")
     console.log(`/getAll`);
     
-    const result = await axios.get(`/getAll`)
+    const result = await axios.get(`/`)
     
     console.log(result.data);
     
@@ -30,7 +30,7 @@ export default {
   addTask: async (name) => {
     console.log('addTask', name)
     console.log(`/add/${name}`)
-    const result = await axios.post(`/add/${name}`)
+    const result = await axios.post(`/${name}`)
     console.log("after log")
     // return result.data;
     return{};
@@ -38,7 +38,7 @@ export default {
 //עדכון משימה
   setCompleted: async (id, isComplete) => {
     console.log('setCompleted', { id, isComplete })
-    console.log(`/update/${id}/${isComplete}`);
+    console.log(`/${id}/${isComplete}`);
     
     const result = await axios.put(`/update/${id}/${isComplete}`)
 console.log("after");
@@ -48,7 +48,7 @@ console.log("after");
 //מחיקת משימה מהמערכת
   deleteTask: async (id) => {
     console.log('deleteTask')
-    console.log(`/del/${id}`);
+    console.log(`/${id}`);
     
     const result = await axios.delete(`/del/${id}`)
 
