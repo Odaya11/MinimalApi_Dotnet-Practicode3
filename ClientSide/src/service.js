@@ -40,7 +40,7 @@ export default {
     console.log('setCompleted', { id, isComplete })
     console.log(`/${id}/${isComplete}`);
     
-    const result = await axios.put(`/update/${id}/${isComplete}`)
+    const result = await axios.put(`/${id}/${isComplete}`)
 console.log("after");
 
     return {};
